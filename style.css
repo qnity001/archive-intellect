@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Silkscreen|Share+Tech|Press+Start+2P&display=swap');
+
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #2B2B2B;
+    font-family: 'Share Tech', Arial;
+}
+
+.header-container {
+    height: 70px;
+}
+
+.header {
+    width: 90%;
+    align-self: center;
+}
+
+.header-container,
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #495A4B;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: Silkscreen, Arial;
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+    color: #F3D4CE;
+    font-weight: 700;
+}
+
+.arcade {
+    width: 60%;
+    margin-top: auto;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.arcade img {
+    align-self: center;
+    width: 80%;
+    object-fit: contain;
+}
+
+.text {
+    text-align: center;
+    width:15%;
+    font-family: 'Press Start 2P', Arial;
+    font-size: 20px;
+    top: 45%;
+    left: 43%;
+    position: absolute;
+}
+
+.upload-body {
+    position: absolute;
+    bottom: 55px;
+}
+
+.upload-header,
+.upload-body {
+    font-family: 'Share Tech', Arial;
+    box-sizing: border-box;
+    border-radius: 40px;
+    border: solid 3px;
+    flex-shrink: 0;
+    font-weight: bold;
+    padding: 9px 35px;
+    align-self: center;
+    font-size: 22px;
+    background: #53131E;
+    color: #F3D4CE;
+}
+
+.footer {
+    height: 50px;
+    margin-top: auto;
+    font-weight: 500;
+    font-size: 14px;
+    color: #F3D4CE;
+}
