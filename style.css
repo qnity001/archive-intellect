@@ -67,9 +67,14 @@ body{
     position: absolute;
 }
 
+.a {
+    text-decoration: none;
+    color: #F3D4CE;
+}
+
 .upload-body {
     position: absolute;
-    bottom: 55px;
+    bottom: 10%;
 }
 
 .upload-header,
