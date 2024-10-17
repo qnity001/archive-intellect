@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Playpen+Sans|Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Silkscreen|Share+Tech&display=swap');
 
 body {
     min-height: 100vh;
@@ -18,11 +18,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3E2723;
+    background-color: #495A4B;
 }
 
 .header {
-    width: 1000px;
+    width: 90%;
     align-self: center;
     display: flex;
     justify-content: space-between;
@@ -32,25 +32,18 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 2px;
-    font-family: 'Satisfy', Arial;
-    color: #EDE1D4;
-    font-weight: 100;
-    max-width: 40%;
+    font-family: Silkscreen, Arial;
+    color: #F3D4C3;
+    font-weight: 700;
 }
 
-.pic {
-    display: flex;
-    align-items: center;
-    font-size: 32px;
-}
 
 a {
-    color: #EDE1D4;
+    color: #F3D4CE;
     text-decoration: none;
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .logo img {
