@@ -9,7 +9,7 @@ function sendMessage() {
     appendMessage('You', message);
 
     // Send the message to the Flask backend
-    fetch('/get_response', {
+    fetch('https://archive-intellect-d2qb.vercel.app/get_response', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -29,55 +29,6 @@ function sendMessage() {
     userInput.value = "";
 }
 
-// Function to append a message to the chat box
-function appendMessage(sender, message) {
-    const chatBox = document.getElementById('chat-box');
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('message');
-
-    if (sender === 'You') {
-        messageElement.classList.add('user-message');
-
-        const userName = document.createElement('div');
-        userName.classList.add('user-name');
-        userName.innerHTML = "You";
-        messageElement.appendChild(userName);
-
-        const userContent = document.createElement('div');
-        userContent.classList.add('user-content');
-        userContent.innerHTML = message;
-        messageElement.appendChild(userContent);
-    } else {
-        messageElement.classList.add('bot-message');
-
-        // Add bot image/avatar
-        const botImage = document.createElement('div');
-        botImage.classList.add('bot-image');
-        botImage.innerHTML = "<img src=\"https://github.com/qnity001/coffee-break/blob/main/coffee/Mascot.png?raw=true\" alt=\"mascot\">";
-        messageElement.appendChild(botImage);
-
-        // Add bot's text container
-        const botText = document.createElement('div');
-        botText.classList.add('bot-text');
-        messageElement.appendChild(botText);
-
-        // Add bot's name
-        const botName = document.createElement('div');
-        botName.classList.add('bot-name');
-        botName.innerHTML = sender;
-        botText.appendChild(botName);
-
-        // Add bot's message content
-        const botContent = document.createElement('div');
-        botContent.classList.add('bot-content');
-        botContent.innerHTML = message;
-        botText.appendChild(botContent);
-    }
-
-    chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to the bottom
-}
-
 // Function to upload a PDF
 function uploadPDF() {
     const pdfInput = document.getElementById("pdf-upload");
@@ -87,7 +38,7 @@ function uploadPDF() {
         const formData = new FormData();
         formData.append("file", file);
 
-        fetch('/upload_pdf', {
+        fetch('https://archive-intellect-d2qb.vercel.app/upload_pdf', {
             method: 'POST',
             body: formData,
         })
@@ -104,12 +55,5 @@ function uploadPDF() {
         });
     } else {
         appendMessage('Milo', 'Please select a PDF file to upload.');
-    }
-}
-
-// Function to check if the Enter key is pressed in the input field
-function checkEnterKey(event) {
-    if (event.keyCode === 13 || event.key === 'Enter') {
-        sendMessage();
     }
 }
