@@ -154,7 +154,12 @@ def upload_pdf():
 # Route to get a response from Gemini AI with global history stored in data.json
 @app.route('/get_response', methods=['POST'])
 def get_response():
-    user_message = request.json.get('message')
+    try:
+        user_message = request.json.get('message')
+        # Rest of your logic
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
     # Load the global conversation history and PDF references from the data.json file
     data = load_history()
