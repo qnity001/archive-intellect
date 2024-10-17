@@ -3,13 +3,13 @@ function sendMessage() {
     const userInput = document.getElementById('user-input');
     const message = userInput.value.trim();
 
-    if (message === "") return;
+    if (message === "") return; // Do nothing if the message is empty
 
     // Display the user's message in the chatbox
     appendMessage('You', message);
 
     // Send the message to the Flask backend
-    fetch('https://archive-intellect-d2qb.vercel.app/get_response', {
+    fetch('https://coffee-break.onrender.com/get_response', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -18,11 +18,12 @@ function sendMessage() {
     })
     .then(response => response.json())
     .then(data => {
-        // Display the chatbot's response
-        appendMessage('Milo', data.response);
+        // Display the chatbot's response with a typing effect
+        displayBotMessage(data.response);
     })
     .catch(error => {
-        appendMessage('Milo', 'Error: ' + error.message);
+        // Display error in case the fetch fails
+        appendMessage('Bot', 'Error: ' + error.message);
     });
 
     // Clear the input box
@@ -56,6 +57,7 @@ function uploadPDF() {
     } else {
         appendMessage('Milo', 'Please select a PDF file to upload.');
     }
+}
 
 // Function to append a message to the chat box
 function appendMessage(sender, message) {
@@ -121,4 +123,23 @@ userInput.addEventListener('keypress', checkEnterKey);
 const uploadButton = document.getElementById('pdf-upload-btn');
 uploadButton.addEventListener('click', uploadPDF);
 
+// Function to display bot messages with typing effect
+function displayBotMessage(message) {
+    const chatBox = document.getElementById('chat-box');
+    const botMessage = document.createElement('div');
+    botMessage.classList.add('bot-message');
+    chatBox.appendChild(botMessage);
+
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < message.length) {
+            botMessage.textContent += message.charAt(i);
+            i++;
+        } else {
+            clearInterval(interval);  // Stop when all characters are displayed
+        }
+
+        // Scroll the chat box to the bottom to display the latest message
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 50); // Adjust speed (50ms per letter for a smoother effect)
 }
