@@ -4,12 +4,14 @@ import os
 import google.generativeai as genai
 import time
 import json
+from flask_cors import CORS
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
+CORS(app, origins=['https://qnity001.github.io'])
 
 # Configure the Gemini AI SDK with the API key
 genai.configure(api_key=os.getenv('API_KEY'))
