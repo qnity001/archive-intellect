@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Milo - Coffee Break</title>
+    <link rel="stylesheet" href="../static/stylebot.css">
+    <script src="../static/app.js" defer></script>
+</head>
+<body>
+
+    <div class="header-container">
+        <div class="header">
+            <div class="logo">
+                <a href="https://qnity001.github.io/coffee-break" class="pic">
+                    <img src="https://github.com/qnity001/coffee-break/blob/main/coffee/logo1.png?raw=true" alt="Coffee Break Logo">
+                    Coffee Break
+                </a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="https://qnity001.github.io/coffee-break">Home</a></li>
+                    <li><a href="https://qnity001.github.io/coffee-break/AI/templates/bot.html">Chat</a></li>
+                    <li><a href="https://qnity001.github.io/coffee-break/resources/index.html">Resources</a></li>
+                    <li><a href="https://qnity001.github.io/coffee-break/about/about.html">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Box Section -->
+    <div class="chat-container">
+        <div id="chat-box" class="chat-box">
+            <!-- Chat messages will appear here -->
+        </div>
+
+        <div class="input-box">
+            <input type="text" id="user-input" placeholder="Type your message here..." onkeydown="checkEnterKey(event)" />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+        <!-- PDF Upload Section -->
+        <div class="upload-container">
+            <input type="file" id="pdf-upload" accept="application/pdf" />
+            <button onclick="uploadPDF()">Upload PDF</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        Copyright &copy; Doctor Binary 2024
+    </div>
+
+
+
+</body>
+</html>
